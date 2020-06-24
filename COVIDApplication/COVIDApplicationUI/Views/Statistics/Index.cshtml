@@ -1,0 +1,67 @@
+﻿@model IEnumerable<Application.Commands.Statistics.Queryes.GetStatisticList.StatisticDto_>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Index</h1>
+
+<p>
+    @if (User.IsInRole("Admin"))
+    {
+        <a asp-action="Create">Create New</a>
+    }
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Republic)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Virus)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.CountInfected)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Recovered)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Dead)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.DateTime)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Republic)
+            </td>
+            <td>
+              @item.Virus
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.CountInfected)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Recovered)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Dead)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.DateTime)
+            </td>
+            <td>
+                <a asp-action="Edit" asp-route-id="@item.Republic">Edit</a> |
+                <a asp-action="Details" asp-route-id="@item.Republic">Details</a> |
+            </td>
+        </tr>
+}
+    </tbody>
+</table>

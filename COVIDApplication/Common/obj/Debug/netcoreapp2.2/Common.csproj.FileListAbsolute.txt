@@ -1,0 +1,7 @@
+C:\Users\User\source\repos\COVIDApplication\Common\bin\Debug\netcoreapp2.2\Common.deps.json
+C:\Users\User\source\repos\COVIDApplication\Common\bin\Debug\netcoreapp2.2\Common.dll
+C:\Users\User\source\repos\COVIDApplication\Common\bin\Debug\netcoreapp2.2\Common.pdb
+C:\Users\User\source\repos\COVIDApplication\Common\obj\Debug\netcoreapp2.2\Common.AssemblyInfoInputs.cache
+C:\Users\User\source\repos\COVIDApplication\Common\obj\Debug\netcoreapp2.2\Common.AssemblyInfo.cs
+C:\Users\User\source\repos\COVIDApplication\Common\obj\Debug\netcoreapp2.2\Common.dll
+C:\Users\User\source\repos\COVIDApplication\Common\obj\Debug\netcoreapp2.2\Common.pdb

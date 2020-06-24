@@ -1,0 +1,29 @@
+﻿@model Application.Commands.Articles.Queryes.GetAllArticles.ArticleList
+@using Microsoft.AspNetCore.Identity
+@inject SignInManager<AppUser> SignInManager
+@inject UserManager<AppUser> UserManager
+
+    
+@foreach (var item in Model.Articles)
+{
+    
+    <div class="alert alert-secondary">
+        <div class="col-11">
+            <h2>@item.Title</h2>
+            <div class="panel-body">
+                <a asp-action="Details" asp-route-EmailUser="@item.AppUser.Email">@item.AppUser.Email</a>  ,
+                @item.Content
+            </div>
+            <div class="text-black-50">@item.Tags</div>
+        </div>
+        <div class="col">
+            <a  asp-action="Edit" asp-route-Id="@item.Id"> Read more..</a>
+        </div>
+    </div>
+}
+<p>
+    @if (SignInManager.IsSignedIn(User))
+    {
+        <a asp-action="Create">Create New</a>
+    }
+</p>

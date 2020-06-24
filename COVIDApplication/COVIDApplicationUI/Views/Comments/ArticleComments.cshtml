@@ -1,0 +1,24 @@
+﻿@model Application.Commands.Comments.Quary.Models.CommentsList
+
+<h1>Comments</h1> @Context.Request.Query["id"]
+<fieldset>
+    <div class="toggle">
+        <input type="radio" name="sizeBy" value="weight" id="sizeWeight" checked="checked" />
+        <label for="sizeWeight">Article</label>
+        <input type="radio" name="sizeBy" value="dimensions" id="sizeDimensions" />
+        <label for="sizeDimensions">Comments</label>
+    </div>
+</fieldset>
+<form asp-controller="Comments" asp-action="Create">
+</form>
+@foreach (var item in Model.Comments)
+{
+    <div class="row">
+        <div>
+            <a asp-controller="Articles" asp-action="Details" asp-route-EmailUser="@item.From.Email">@item.From.Email</a>
+        </div>
+        <div>
+            @item.Message
+        </div>
+    </div>
+}

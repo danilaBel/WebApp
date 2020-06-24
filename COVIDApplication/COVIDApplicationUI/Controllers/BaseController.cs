@@ -1,0 +1,17 @@
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Threading.Tasks;
+using MediatR;
+using Microsoft.AspNetCore.Mvc;
+using Microsoft.Extensions.DependencyInjection;
+
+namespace COVIDApplicationUI.Controllers
+{
+    public abstract class BaseController : Controller
+    {
+        private IMediator _mediator;
+
+        public IMediator Mediator => _mediator ??= HttpContext.RequestServices.GetService<IMediator>();
+    }
+}

@@ -1,0 +1,3 @@
+C:\Users\User\source\repos\COVIDApplication\COVIDApplication.View\obj\Debug\netcoreapp2.2\COVIDApplicationView.AssemblyInfoInputs.cache
+C:\Users\User\source\repos\COVIDApplication\COVIDApplication.View\obj\Debug\netcoreapp2.2\COVIDApplicationView.AssemblyInfo.cs
+C:\Users\User\source\repos\COVIDApplication\COVIDApplication.View\obj\Debug\netcoreapp2.2\COVIDApplicationView.csprojAssemblyReference.cache

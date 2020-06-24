@@ -1,0 +1,38 @@
+﻿@model Application.Commands.Accounts.Admin.GetAllDoctorsForConfirmed.UsersList
+@using System.IO;
+    <table class="table">
+        <thead>
+            <tr>
+                <th>
+                    model.Email
+                </th>
+                <th>
+                    model.Certificate
+                </th>
+                <th>
+                    IsConfirmed
+                </th>
+                <th></th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model.Users)
+            {
+                <tr>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Email)
+                    </td>
+                    <td>
+                        <img style="width:100%" src="/images/Validation/@item.Certificate" alt="ASP.NET" class="img-responsive" />
+                    </td>
+                    <td>
+                        <form asp-action="ConfirmDoctor" asp-route-Email="@item.Email" asp-route-returnUrl="@Context.Request.Path">
+                            <label>confirm Doctor</label>
+                            <input type="submit" class="form-check" onclick="" value=""/>
+                        </form>            
+                    </td>
+                </tr>
+               
+            }
+        </tbody>
+    </table>

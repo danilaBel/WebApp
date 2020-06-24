@@ -1,0 +1,25 @@
+﻿@model Application.Commands.Articles.Queryes.GetArticlesByUser.ArticlesByUserList
+
+    <div>
+        <dl class="row">
+            <div class="card-title"><b style="font-size:x-large; color:black">@Model.Articles.First().AppUser.Email.ToUpper()</b></div>
+        </dl>
+        @foreach (var item in @Model.Articles)
+        {
+            <div class="alert alert-light">
+                <h2>@item.Title</h2>
+                <div class="panel-body">
+                    @item.AppUser.Email
+                    @item.Content
+                </div>
+                <div class="text-black-50">@item.Tags</div>
+                <div>
+                    <a asp-action="Edit" asp-route-Id="@item.Id" style="color:black"> Read more..</a>
+                </div>
+            </div>
+            
+        }
+    </div>
+<div>
+    <a asp-action="Index">Back</a>
+</div>

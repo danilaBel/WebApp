@@ -1,0 +1,54 @@
+﻿@model Application.Commands.Statistics.GetStatisticDetail.StatisticDto
+
+@{
+    ViewData["Title"] = "Details";
+}
+
+<h1>Details</h1>
+
+<div>
+    <h4>Statistic</h4>
+    <hr />
+    <dl class="row">
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Republic)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Republic)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Virus)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Virus)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.CountInfected)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.CountInfected)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Recovered)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Recovered)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Dead)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Dead)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.DateTime)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.DateTime)
+        </dd>
+    </dl>
+</div>
+<div>
+    <a asp-action="Edit" asp-route-id="@Model.Republic">Edit</a> |
+    <a asp-action="Index">Back to List</a>
+</div>

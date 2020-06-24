@@ -1,0 +1,80 @@
+﻿@model Dictionary<Application.Commands.Articles.Queryes.GetAllArticles.ArticleDto, Application.Commands.Comments.Quary.Models.CommentsList>
+@using Application.Commands.Comments.AddComment
+@using Microsoft.AspNetCore.Identity
+@inject SignInManager<AppUser> SignInManager
+@inject UserManager<AppUser> UserManager
+<hr />
+
+<div class="row">
+    <div class="col-10 alert alert-secondary">
+        <div class="form-group">
+            <h1>@Model.Keys.First().Title</h1>
+        </div>
+        <div class="form-group">
+            <h4>@Model.Keys.First().Content</h4>
+        </div>
+        <div class="">
+            @Model.Keys.First().AppUser.Email
+        </div>
+        <div class="form-group alert-secondary">
+            @Model.Keys.First().Tags
+        </div>
+    </div>
+</div>
+<h1>Comments</h1>
+
+
+<div class="row bootstrap snippets">
+    <div class="col-10">
+        <div class="comment-wrapper">
+            <div class="panel panel-info">
+                <div class="panel-heading">
+                    Comment panel
+                </div>
+                <div class="panel-body">
+                    @if (SignInManager.IsSignedIn(User))
+                    {
+                        <form asp-route-returnUrl="@Context.Request.Path" asp-controller="Comments" asp-action="Create" asp-route-ToId="@Model.Keys.First().Id" asp-route-FromId="@UserManager.GetUserAsync(User).Result.Email" method="post">
+                            <textarea name="Message" id="Message" class="form-control" placeholder="write a comment..." rows="3"></textarea>
+                            <br>
+                            <button type="submit" class="btn btn-info pull-right">Post</button>
+                        </form>
+                    }
+                    <div class="clearfix"></div>
+                    <hr>
+                    @foreach (var item in Model[Model.Keys.First()].Comments)
+                    {
+                        <ul class="media-list">
+                            <li class="media">
+                                <div class="media-body">
+                                    <span>
+                                        <small><a style="color:black" asp-controller="Articles" asp-action="Details" asp-route-EmailUser="@item.From.Email"><b>@item.From.Email</b></a></small>
+                                    </span>
+
+                                        @if (@item.From.Email == @Model.Keys.First().AppUser.Email)
+                                        {
+                                            <span class="text-muted pull-right">
+                                                <small class="text-muted">
+                                                    <b style="color:blueviolet">Author</b>
+                                                </small>
+                                            </span>
+                                        }
+                                        <strong class="text-success"></strong>
+                                        <p>
+                                            @item.Message
+                                        </p>
+                                    </div>
+                                
+                            </li>
+
+                        </ul>
+                    }
+                </div>
+            </div>
+    </div>
+
+</div>
+    </div>
+<div>
+    <a asp-action="Index">Back to List</a>
+</div>
